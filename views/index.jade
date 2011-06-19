@@ -1,0 +1,16 @@
+h2 #{total} file#{total == 1 ? '' : 's'}
+
+table
+  thead
+    tr
+      th file
+      th count
+      th last access
+  tbody
+    - results.forEach( function( doc ) {
+      tr
+        td
+          a( href='/file/' + doc.file )= doc.file
+        td= doc.count
+        td= h.formatDateTime( doc.lastAccess )
+    - } );
